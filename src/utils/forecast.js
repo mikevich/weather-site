@@ -9,13 +9,15 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback(body.error.info);
         } else {
-            const { temperature:temp, feelslike:feelsLike } = body.current;
+            const { temperature:temp, feelslike:feelsLike, wind_speed, wind_dir } = body.current;
             const descrip = body.current.weather_descriptions[0];
 
             callback(null, {
                 temp,
                 feelsLike,
-                descrip
+                descrip,
+                wind_speed,
+                wind_dir
             });
         }
     })

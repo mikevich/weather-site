@@ -64,36 +64,24 @@ app.get('/weather', (req, res) => {
             return res.send({ error });
         }
 
-        forecast(longitude, latitude, (error, { temp, feelsLike, descrip } = {}) => {
+        forecast(longitude, latitude, (error, { temp, feelsLike, descrip, wind_speed, wind_dir } = {}) => {
             if (error) {
                 return res.send({ error });
             }
 
             res.send({
-                result: `It is ${descrip.toLowerCase()} in ${location}. It is currently ${temp} degrees. It feels like ${feelsLike} degrees outside.`,
+                result: `It is ${descrip.toLowerCase()} in ${location}. It is currently ${temp} degrees. It feels like ${feelsLike} degrees outside. The wind is traveling ${wind_dir} at ${wind_speed} km/h.`,
                 address: req.query.address,
                 location,
                 temp,
                 feelsLike,
-                descrip
+                descrip,
+                wind_speed,
+                wind_dir
             })
         });
     });
 })
-
-// Test Products page
-// app.get('/products', (req, res) => {
-//     if (!req.query.search) {
-//         return res.send({
-//             error: "You must provide a search term."
-//         });
-//     }
-
-//     console.log(req.query.search);
-//     res.send({
-//         products: []
-//     })
-// })
 
 // Help 404s
 app.get('/help/*', (req, res) => {
