@@ -29,25 +29,25 @@ app.use(express.static(publicDirectoryPath));
 app.get('', (req, res) => {
     res.render('index', {
         title: "Weatherboy",
-        name: "Bongus"
+        name: "Mike V"
     });
 })
 
 // About page
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: "Abootus",
-        body: "Hoo boy, this page is all abootus.",
-        name: "Bongus"
+        title: "About",
+        body: "A simple app designed to get the weather at a given location.",
+        name: "Mike V"
     })
 })
 
 // Help page
 app.get('/help', (req, res) => {
     res.render('help', {
-        title: "Helpus",
-        body: "Oh, so you want some helpus?",
-        name: "Bongus"
+        title: "Help",
+        body: "Enter any city name into the input box on the homepage.",
+        name: "Mike V"
     })
 })
 
