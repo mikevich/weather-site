@@ -46,7 +46,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: "Help",
-        body: "Enter any city name into the input box on the homepage.",
+        body: "Enter any city name into the input box on the homepage.",..
         name: "Mike V"
     })
 })
